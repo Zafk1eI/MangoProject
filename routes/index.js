@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', {title: 'Express'});
 });
 
 /* Страница манго */
@@ -14,7 +14,6 @@ picture: "images/mango_1.jpg",
 desc: "Манго Gold имеет сладкий вкус с медовыми нотками и небольшой кислинкой. Очень сочное и вкусное манго из Вьетнама с нежной мякотью, без волокон. "
 });
 });
-
 
  /* Страница манго */
 router.get('/mango_2', function(req, res, next) {
