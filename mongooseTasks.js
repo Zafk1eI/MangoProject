@@ -22,8 +22,15 @@ mongoose.connect('mongodb://127.0.0.1:27017/test')
 var Mango = require("./models/mango").Mango
 var mangoes = new Mango({
 title: "Манго Император",
+nick: "imperator"
 })
 console.log(mangoes)
-mangoes.save().then(() => {
-    console.log(arguments);
+
+mangoes.save()
+.then((mango) => {
+        console.log("Saved Mango with title:", mango.title);
 })
+.catch((err) => {
+        console.error(err);
+});
+    
