@@ -8,8 +8,8 @@ await client.connect();
 var database = client.db("myMango");
 database.dropDatabase()
 database = client.db("myMango");
-const cats = database.collection("mango");
-const result = await cats.insertOne({name:"Манго желтое Gold"});
+const mangoes = database.collection("mango");
+const result = await mangoes.insertOne({name:"Манго желтое Gold"});
 console.log(`${result} documents were inserted`);
 } finally {
 await client.close();
