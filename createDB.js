@@ -6,9 +6,9 @@ const client = new MongoClient(uri)
 async function run() {
 try {
 await client.connect();
-var database = client.db("myMango");
+var database = client.db("mymango");
 database.dropDatabase()
-database = client.db("myMango");
+database = client.db("mymango");
 const mangoes = database.collection("mangoes");
 const result = await mangoes.insertMany(data);
 console.log(`${result.insertedCount} documents were inserted`);
