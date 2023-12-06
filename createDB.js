@@ -9,7 +9,7 @@ await client.connect();
 var database = client.db("mymango");
 database.dropDatabase()
 database = client.db("mymango");
-const mangoes = database.collection("mangoes");
+const mangoes = database.collection("mangos");
 const result = await mangoes.insertMany(data);
 console.log(`${result.insertedCount} documents were inserted`);
 } finally {
