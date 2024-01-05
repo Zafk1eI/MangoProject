@@ -16,11 +16,13 @@
         <li class="nav-item">
         <a class="nav-link" href="/">Главная</a>
         </li>
-        <% menu.forEach(function(mango) { %>
+        <% if(typeof nav == 'object' && nav){ nav.forEach(function(mango){
+            %>
             <li class="nav-item">
-                <a class="nav-link" href="/mangoes/<%= mango.nick %>"><%= mango.title %></a>
+            <a class="nav-link"
+            href="/mangoes/<%=mango.nick%>"><%=mango.title%></a>
             </li>
-        <% }) %>        
+        <% })} %>      
         </ul>
         <ul class="navbar-nav navbar-right">
         <li>

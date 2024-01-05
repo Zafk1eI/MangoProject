@@ -9,7 +9,6 @@ router.get('/', async (req, res, next) => {
     req.session.greeting = "Hi!!!"
     res.render('index', {
       title: 'Express',
-      menu: menu,
       counter:req.session.counter
     });
   } catch (err) {

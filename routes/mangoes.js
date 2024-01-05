@@ -18,7 +18,6 @@ router.get('/:nick', async function(req, res, next) {
         title: mango.title,
         picture: mango.avatar,
         desc: mango.desc,
-        menu: mangoes
     });
 console.log(mangoes);
 } catch (err) {
