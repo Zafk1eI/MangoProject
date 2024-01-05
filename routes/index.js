@@ -6,7 +6,7 @@ var Mango = require("../models/mango").Mango
 router.get('/', async (req, res, next) => {
   try {
     const menu = await Mango.find({}, { _id: 0, title: 1, nick: 1 });
-    res.render('index', {
+    res.cookie('greeting', 'Hi!!!').render('index', {
       title: 'Express',
       menu: menu
     });
