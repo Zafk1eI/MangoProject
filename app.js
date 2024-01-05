@@ -31,9 +31,8 @@ app.use(session({
   cookie:{maxAge:60*1000},
   resave: true,
   saveUninitialized: true
-}))
+}));
   
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/mangoes', mangoesRouter)
