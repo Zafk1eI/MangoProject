@@ -19,31 +19,38 @@ router.get('/', async (req, res, next) => {
 
 /* GET login/registration page. */
 router.get('/logreg', async function (req, res, next) {
-  res.render('logreg', { title: 'Вход', error: null});
+  res.render('logreg', { title: 'Вход', error: null });
 });
 
-router.post('/logreg', async function(req, res, next) {
+router.post('/logreg', async function (req, res, next) {
   const username = req.body.username;
   const password = req.body.password;
   try {
-      const user = await User.findOne({ username });
-      
-      if (user) {
-          if (user.checkPassword(password)) {
-              req.session.user = user._id;
-              res.redirect('/');
-          } else {
-              res.render('logreg', { title: 'Вход', error: 'Неверный пароль. Попробуйте ещё раз' });
-          }
+    const user = await User.findOne({ username });
+
+    if (user) {
+      if (user.checkPassword(password)) {
+        req.session.user = user._id;
+        res.redirect('/');
       } else {
-          const newUser = new User({ username, password });
-          await newUser.save();
-          req.session.user = newUser._id;
-          res.redirect('/');
+        res.render('logreg', { title: 'Вход', error: 'Неверный пароль. Попробуйте ещё раз' });
       }
+    } else {
+      const newUser = new User({ username, password });
+      await newUser.save();
+      req.session.user = newUser._id;
+      res.redirect('/');
+    }
   } catch (err) {
-      next(err);
+    next(err);
   }
+});
+
+/* POST logout. */
+router.post('/logout', function (req, res, next) {
+  req.session.destroy()
+  res.locals.user = null
+  res.redirect('/')
 });
 
 module.exports = router;
