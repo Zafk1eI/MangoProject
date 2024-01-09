@@ -2,3 +2,8 @@
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
 <p>Счетчик: <%= counter %></p>
+<% if (user) { %>
+  <p>Здравствуйте <%= user.username %></p>
+<% } else { %>
+  <p>Для просмотра страниц рекомендуем <a href="/logreg">Войти</a></p>
+<% } %>

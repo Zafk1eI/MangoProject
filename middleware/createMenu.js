@@ -1,4 +1,4 @@
-const Mango = require("./../models/mango").Mango;
+const Mango = require("../models/mango").Mango;
 
 module.exports = async function(req, res, next) {
   try {
