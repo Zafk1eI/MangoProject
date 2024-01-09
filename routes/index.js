@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var Mango = require("../models/mango").Mango
 var User = require("../models/user").User
+var checkAuth = require("../middleware/checkAuth.js")
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
