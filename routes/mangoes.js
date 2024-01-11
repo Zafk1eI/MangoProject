@@ -7,7 +7,7 @@ var async = require("async");
 
 /* GET cats listing. */
 router.get('/', function (req, res, next) {
-  res.send('<h1>Это экран для списка котков</h1>');
+  res.send('<h1>Это экран для списка манго</h1>');
 });
 
 router.get("/:nick", function (req, res, next) {
