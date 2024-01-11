@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 var db = require('../mySQLconnect.js');
 //var Mango = require('../models/mango.js').Mango
-var async = require("async");
-//var checkAuth = require("../middleware/checkAuth.js")
+//var async = require("async");
+var checkAuth = require("../middleware/checkAuth.js")
 
 /* GET cats listing. */
 router.get('/', function (req, res, next) {
   res.send('<h1>Это экран для списка манго</h1>');
 });
 
-router.get("/:nick", function (req, res, next) {
+router.get("/:nick", checkAuth, function (req, res, next) {
   db.query(`SELECT * FROM mangos WHERE mangos.nick = '${req.params.nick}'`, (err,
     mangos) => {
     if (err) {
